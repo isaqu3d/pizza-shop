@@ -9,6 +9,7 @@ import { updateProfile } from "@/api/update-profile";
 
 import { Button } from "./ui/button";
 import {
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -30,6 +31,7 @@ export function StoreProfileDialog() {
   const { data: manageRestaurant } = useQuery({
     queryKey: ["managed-restaurant"],
     queryFn: getManagerRestaurant,
+    staleTime: Infinity,
   });
 
   const {
@@ -92,9 +94,12 @@ export function StoreProfileDialog() {
         </div>
 
         <DialogFooter>
-          <Button variant="ghost" type="button">
-            Cancelar
-          </Button>
+          <DialogClose asChild>
+            <Button variant="ghost" type="button">
+              Cancelar
+            </Button>
+          </DialogClose>
+
           <Button type="submit" variant="success" disabled={isSubmitting}>
             Salvar
           </Button>
