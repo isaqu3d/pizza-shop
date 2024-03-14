@@ -5,8 +5,8 @@ import { ptBR } from "date-fns/locale";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useState } from "react";
 
-import { cancelOrder } from "@/api/cancel-order";
 import { GetOrdersResponse } from "@/api/get-orders";
+import { cancelOrder } from "@/api/status-orders/cancel-order";
 import { OrderStatus } from "@/components/order-status";
 import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
