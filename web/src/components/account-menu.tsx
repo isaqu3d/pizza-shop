@@ -2,9 +2,9 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { Building, ChevronDown, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import { getManagerRestaurant } from "@/api/get-managed-restaurant";
-import { getProfile } from "@/api/get-profile";
-import { signOut } from "@/api/sign-out";
+import { signOut } from "@/api/auth/sign-out";
+import { getProfile } from "@/api/profile/get-profile";
+import { getManagerRestaurant } from "@/api/restaurant/get-managed-restaurant";
 
 import { StoreProfileDialog } from "./store-profile-dialog";
 import { Button } from "./ui/button";
