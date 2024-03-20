@@ -3,7 +3,7 @@ import { BarChart } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import colors from "tailwindcss/colors";
 
-import { getPopularProducts } from "@/api/popular-products/get-popular-products";
+import { getPopularProducts } from "@/api/charts/get-popular-products";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const COLORS = [
