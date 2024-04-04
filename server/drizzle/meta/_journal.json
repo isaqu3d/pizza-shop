@@ -15,6 +15,13 @@
       "when": 1711383165742,
       "tag": "0001_safe_hemingway",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1712196890797,
+      "tag": "0002_luxuriant_the_captain",
+      "breakpoints": true
     }
   ]
 }
