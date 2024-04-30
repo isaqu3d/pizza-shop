@@ -40,11 +40,6 @@ export const authenticateFromLink = new Elysia().use(auth).get(
       restaurantId: managedRestaurant?.id,
     });
 
-    // setCookie("auth", token, {
-    //   httpOnly: true,
-    //   maxAge: 60 * 60 * 24 * 7,
-    //   path: "/",
-    // });
     auth.httpOnly = true;
     auth.value = token;
     auth.maxAge = 60 * 60 * 24 * 7; // 7 days
