@@ -7,7 +7,7 @@ import { auth } from "../auth";
 
 export const authenticateFromLink = new Elysia().use(auth).get(
   "/auth-links/authenticate",
-  async ({ query, jwt, set }) => {
+  async ({ query, jwt, set, cookie: { auth } }) => {
     const { code, redirect } = query;
 
     const authLinkFromCode = await db.query.authLinks.findFirst({
@@ -45,6 +45,10 @@ export const authenticateFromLink = new Elysia().use(auth).get(
     //   maxAge: 60 * 60 * 24 * 7,
     //   path: "/",
     // });
+    auth.httpOnly = true;
+    auth.value = token;
+    auth.maxAge = 60 * 60 * 24 * 7; // 7 days
+    auth.path = "/";
 
     await db.delete(authLinks).where(eq(authLinks.code, code));
     set.redirect = redirect;
