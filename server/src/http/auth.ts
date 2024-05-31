@@ -33,7 +33,7 @@ export const auth = new Elysia()
         const payload = await jwt.verify(auth.value);
 
         if (!payload) {
-          throw new Error("Unathorized");
+          throw new Error("Unauthorized");
         }
 
         return {
