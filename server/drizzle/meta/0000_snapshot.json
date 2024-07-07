@@ -1,10 +1,8 @@
 {
-  "id": "fbf0e9ec-ce23-44ee-81d1-4f911c9eedb4",
-  "prevId": "00000000-0000-0000-0000-000000000000",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "users": {
+    "public.users": {
       "name": "users",
       "schema": "",
       "columns": {
@@ -60,27 +58,30 @@
       "uniqueConstraints": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     }
   },
   "enums": {
-    "user_role": {
+    "public.user_role": {
       "name": "user_role",
-      "values": {
-        "manager": "manager",
-        "customer": "customer"
-      }
+      "schema": "public",
+      "values": [
+        "manager",
+        "customer"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "fbf0e9ec-ce23-44ee-81d1-4f911c9eedb4",
+  "prevId": "00000000-0000-0000-0000-000000000000"
 }

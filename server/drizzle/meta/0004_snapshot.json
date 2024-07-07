@@ -1,10 +1,8 @@
 {
-  "id": "a1df080c-727c-465a-8ba7-cb7f3c264ca5",
-  "prevId": "f0f3f6b7-e88e-4901-ae88-c810e3ba53c5",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "auth_links": {
+    "public.auth_links": {
       "name": "auth_links",
       "schema": "",
       "columns": {
@@ -39,29 +37,29 @@
         "auth_links_user_id_users_id_fk": {
           "name": "auth_links_user_id_users_id_fk",
           "tableFrom": "auth_links",
-          "tableTo": "users",
           "columnsFrom": [
             "user_id"
           ],
+          "tableTo": "users",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "auth_links_code_unique": {
           "name": "auth_links_code_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "code"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     },
-    "restaurants": {
+    "public.restaurants": {
       "name": "restaurants",
       "schema": "",
       "columns": {
@@ -109,21 +107,21 @@
         "restaurants_manager_id_users_id_fk": {
           "name": "restaurants_manager_id_users_id_fk",
           "tableFrom": "restaurants",
-          "tableTo": "users",
           "columnsFrom": [
             "manager_id"
           ],
+          "tableTo": "users",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "set null"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "users": {
+    "public.users": {
       "name": "users",
       "schema": "",
       "columns": {
@@ -179,27 +177,30 @@
       "uniqueConstraints": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     }
   },
   "enums": {
-    "user_role": {
+    "public.user_role": {
       "name": "user_role",
-      "values": {
-        "manager": "manager",
-        "customer": "customer"
-      }
+      "schema": "public",
+      "values": [
+        "manager",
+        "customer"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "a1df080c-727c-465a-8ba7-cb7f3c264ca5",
+  "prevId": "f0f3f6b7-e88e-4901-ae88-c810e3ba53c5"
 }

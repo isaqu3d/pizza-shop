@@ -1,10 +1,8 @@
 {
-  "id": "43acd21b-e838-4dc6-9244-19f78f47d28a",
-  "prevId": "fbf0e9ec-ce23-44ee-81d1-4f911c9eedb4",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "restaurants": {
+    "public.restaurants": {
       "name": "restaurants",
       "schema": "",
       "columns": {
@@ -47,14 +45,14 @@
       "uniqueConstraints": {
         "restaurants_description_unique": {
           "name": "restaurants_description_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "description"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     },
-    "users": {
+    "public.users": {
       "name": "users",
       "schema": "",
       "columns": {
@@ -110,27 +108,30 @@
       "uniqueConstraints": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     }
   },
   "enums": {
-    "user_role": {
+    "public.user_role": {
       "name": "user_role",
-      "values": {
-        "manager": "manager",
-        "customer": "customer"
-      }
+      "schema": "public",
+      "values": [
+        "manager",
+        "customer"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "43acd21b-e838-4dc6-9244-19f78f47d28a",
+  "prevId": "fbf0e9ec-ce23-44ee-81d1-4f911c9eedb4"
 }

@@ -1,10 +1,8 @@
 {
-  "id": "2d2a2499-4a57-409e-a8a0-ea781a08504a",
-  "prevId": "43acd21b-e838-4dc6-9244-19f78f47d28a",
-  "version": "5",
-  "dialect": "pg",
+  "version": "6",
+  "dialect": "postgresql",
   "tables": {
-    "restaurants": {
+    "public.restaurants": {
       "name": "restaurants",
       "schema": "",
       "columns": {
@@ -52,29 +50,29 @@
         "restaurants_manager_id_users_id_fk": {
           "name": "restaurants_manager_id_users_id_fk",
           "tableFrom": "restaurants",
-          "tableTo": "users",
           "columnsFrom": [
             "manager_id"
           ],
+          "tableTo": "users",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "set null"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "restaurants_description_unique": {
           "name": "restaurants_description_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "description"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     },
-    "users": {
+    "public.users": {
       "name": "users",
       "schema": "",
       "columns": {
@@ -130,27 +128,30 @@
       "uniqueConstraints": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ]
+          ],
+          "nullsNotDistinct": false
         }
       }
     }
   },
   "enums": {
-    "user_role": {
+    "public.user_role": {
       "name": "user_role",
-      "values": {
-        "manager": "manager",
-        "customer": "customer"
-      }
+      "schema": "public",
+      "values": [
+        "manager",
+        "customer"
+      ]
     }
   },
   "schemas": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
-  }
+    "tables": {},
+    "columns": {}
+  },
+  "id": "2d2a2499-4a57-409e-a8a0-ea781a08504a",
+  "prevId": "43acd21b-e838-4dc6-9244-19f78f47d28a"
 }
