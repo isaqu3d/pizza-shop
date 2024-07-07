@@ -7,9 +7,9 @@
     "build": "bun build src/http/server.ts",
     "start": "NODE_ENV=production bun src/http/server.ts",
     "test": "bun test",
-    "generate": "drizzle-kit generate:pg",
-    "migrate": "bun src/db/migrate.ts",
-    "seed": "bun src/db/seed.ts",
+    "generate": "drizzle-kit generate",
+    "migrate": "bun ./src/db/migrate.ts",
+    "seed": "bun ./src/db/seed.ts",
     "studio": "bunx drizzle-kit studio",
     "lint": "eslint --fix src --ext ts"
   },
